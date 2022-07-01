@@ -1,0 +1,718 @@
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~ (master)
+$ git checkout contack
+fatal: Unable to create 'C:/Users/TKJSQUAD/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~ (master)
+$ git branch
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~ (master)
+$ git branch galeri
+fatal: not a valid object name: 'master'
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~ (master)
+$ git branch galeri checkout
+fatal: not a valid object name: 'checkout'
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~ (master)
+$ pwd
+/c/Users/TKJSQUAD
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~ (master)
+$ mkdir git-basic
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~ (master)
+$ pwd
+/c/Users/TKJSQUAD
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~ (master)
+$ cd git-basic
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~/git-basic (master)
+$ echo >first.txt
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~/git-basic (master)
+$ dir
+first.txt
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~/git-basic (master)
+$ git init
+Initialized empty Git repository in C:/Users/TKJSQUAD/git-basic/.git/
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~/git-basic (master)
+$ ls -a
+./  ../  .git/  first.txt
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~/git-basic (master)
+$ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        first.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~/git-basic (master)
+$ git add
+Nothing specified, nothing added.
+hint: Maybe you wanted to say 'git add .'?
+hint: Turn this message off by running
+hint: "git config advice.addEmptyPathspec false"
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~/git-basic (master)
+$ git add .
+warning: in the working copy of 'first.txt', LF will be replaced by CRLF the next time Git touches it
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~/git-basic (master)
+$ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   first.txt
+
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~/git-basic (master)
+$ git commit -m "adding first.txt"
+[master (root-commit) bf8a843] adding first.txt
+ 1 file changed, 1 insertion(+)
+ create mode 100644 first.txt
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~/git-basic (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~/git-basic (master)
+$ git log
+commit bf8a843c33f47cd9f6021c6a6a0d2d63f1f7b744 (HEAD -> master)
+Author: Elwass <hanung07112012@gmail.com>
+Date:   Fri Jul 1 13:26:17 2022 +0700
+
+    adding first.txt
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~/git-basic (master)
+$ touch second.txt
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~/git-basic (master)
+$ dir
+first.txt  second.txt
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~/git-basic (master)
+$ git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        second.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~/git-basic (master)
+$ git add .
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~/git-basic (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   second.txt
+
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~/git-basic (master)
+$ git commit -m "adding second txt"
+[master 855b3cb] adding second txt
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 second.txt
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~/git-basic (master)
+$ echo adding second.txt>second.txt
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~/git-basic (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   second.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~/git-basic (master)
+$ git add
+Nothing specified, nothing added.
+hint: Maybe you wanted to say 'git add .'?
+hint: Turn this message off by running
+hint: "git config advice.addEmptyPathspec false"
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~/git-basic (master)
+$ git log
+commit 855b3cb3d9e19fbc20088265ed11b28a34a6701b (HEAD -> master)
+Author: Elwass <hanung07112012@gmail.com>
+Date:   Fri Jul 1 13:28:05 2022 +0700
+
+    adding second txt
+
+commit bf8a843c33f47cd9f6021c6a6a0d2d63f1f7b744
+Author: Elwass <hanung07112012@gmail.com>
+Date:   Fri Jul 1 13:26:17 2022 +0700
+
+    adding first.txt
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~/git-basic (master)
+$ rm first.txt
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~/git-basic (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        deleted:    first.txt
+        modified:   second.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~/git-basic (master)
+$ git add
+Nothing specified, nothing added.
+hint: Maybe you wanted to say 'git add .'?
+hint: Turn this message off by running
+hint: "git config advice.addEmptyPathspec false"
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~/git-basic (master)
+$ git add .
+warning: in the working copy of 'second.txt', LF will be replaced by CRLF the next time Git touches it
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~/git-basic (master)
+$ git log
+commit 855b3cb3d9e19fbc20088265ed11b28a34a6701b (HEAD -> master)
+Author: Elwass <hanung07112012@gmail.com>
+Date:   Fri Jul 1 13:28:05 2022 +0700
+
+    adding second txt
+
+commit bf8a843c33f47cd9f6021c6a6a0d2d63f1f7b744
+Author: Elwass <hanung07112012@gmail.com>
+Date:   Fri Jul 1 13:26:17 2022 +0700
+
+    adding first.txt
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~/git-basic (master)
+$ dir
+second.txt
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~/git-basic (master)
+$ git log
+commit 855b3cb3d9e19fbc20088265ed11b28a34a6701b (HEAD -> master)
+Author: Elwass <hanung07112012@gmail.com>
+Date:   Fri Jul 1 13:28:05 2022 +0700
+
+    adding second txt
+
+commit bf8a843c33f47cd9f6021c6a6a0d2d63f1f7b744
+Author: Elwass <hanung07112012@gmail.com>
+Date:   Fri Jul 1 13:26:17 2022 +0700
+
+    adding first.txt
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~/git-basic (master)
+$ mkdir elwas
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~/git-basic (master)
+$ dir
+elwas  git-basic.txt  second.txt
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~/git-basic (master)
+$ touch README.md
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~/git-basic (master)
+$ cd elwas
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~/git-basic/elwas (master)
+$ pwd
+/c/Users/TKJSQUAD/git-basic/elwas
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~/git-basic/elwas (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        deleted:    ../first.txt
+        modified:   ../second.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        ../README.md
+        ../git-basic.txt
+
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~/git-basic/elwas (master)
+$ git add
+Nothing specified, nothing added.
+hint: Maybe you wanted to say 'git add .'?
+hint: Turn this message off by running
+hint: "git config advice.addEmptyPathspec false"
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~/git-basic/elwas (master)
+$ git add .
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~/git-basic/elwas (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        deleted:    ../first.txt
+        modified:   ../second.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        ../README.md
+        ../git-basic.txt
+
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~/git-basic/elwas (master)
+$ rm README.md
+rm: cannot remove 'README.md': No such file or directory
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~/git-basic/elwas (master)
+$ dir
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~/git-basic/elwas (master)
+$ pwd
+/c/Users/TKJSQUAD/git-basic/elwas
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~/git-basic/elwas (master)
+$ touch README.md
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~/git-basic/elwas (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        deleted:    ../first.txt
+        modified:   ../second.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        ../README.md
+        ./
+        ../git-basic.txt
+
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~/git-basic/elwas (master)
+$ git add .
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~/git-basic/elwas (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   README.md
+        deleted:    ../first.txt
+        modified:   ../second.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        ../README.md
+        ../git-basic.txt
+
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~/git-basic/elwas (master)
+$ dir
+README.md
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~/git-basic/elwas (master)
+$ git add .
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~/git-basic/elwas (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   README.md
+        deleted:    ../first.txt
+        modified:   ../second.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        ../README.md
+        ../git-basic.txt
+
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~/git-basic/elwas (master)
+$ git commit
+Aborting commit due to empty commit message.
+
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~/git-basic/elwas (master)
+$
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~/git-basic/elwas (master)
+$
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~/git-basic/elwas (master)
+$
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~/git-basic/elwas (master)
+$ git commit -m "
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+> ^C
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~/git-basic/elwas (master)
+$ pwd
+/c/Users/TKJSQUAD/git-basic/elwas
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~/git-basic/elwas (master)
+$ dir
+README.md
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~/git-basic/elwas (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   README.md
+        deleted:    ../first.txt
+        modified:   ../second.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        ../README.md
+        ../git-basic.txt
+
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~/git-basic/elwas (master)
+$ dir
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~/git-basic/elwas (master)
+$ pwd
+/c/Users/TKJSQUAD/git-basic/elwas
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~/git-basic/elwas (master)
+$ cd elwas
+bash: cd: elwas: No such file or directory
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~/git-basic/elwas (master)
+$ touch README.md
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~/git-basic/elwas (master)
+$ dir
+README.md
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~/git-basic/elwas (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   README.md
+        deleted:    ../first.txt
+        modified:   ../second.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        ../git-basic.txt
+
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~/git-basic/elwas (master)
+$ git add .
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~/git-basic/elwas (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   README.md
+        deleted:    ../first.txt
+        modified:   ../second.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        ../git-basic.txt
+
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~/git-basic/elwas (master)
+$ git add git-basic
+fatal: pathspec 'git-basic' did not match any files
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~/git-basic/elwas (master)
+$ dir
+README.md
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~/git-basic/elwas (master)
+$ git commit -m "halo perkenalkan aku halaman pertama"
+[master 3728657] halo perkenalkan aku halaman pertama
+ 3 files changed, 1 insertion(+), 1 deletion(-)
+ create mode 100644 elwas/README.md
+ delete mode 100644 first.txt
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~/git-basic/elwas (master)
+$ git log
+commit 3728657902aa041688f18c8e2cabdaf31b1ca5b2 (HEAD -> master)
+Author: Elwass <hanung07112012@gmail.com>
+Date:   Fri Jul 1 14:28:53 2022 +0700
+
+    halo perkenalkan aku halaman pertama
+
+commit 855b3cb3d9e19fbc20088265ed11b28a34a6701b
+Author: Elwass <hanung07112012@gmail.com>
+Date:   Fri Jul 1 13:28:05 2022 +0700
+
+    adding second txt
+
+commit bf8a843c33f47cd9f6021c6a6a0d2d63f1f7b744
+Author: Elwass <hanung07112012@gmail.com>
+Date:   Fri Jul 1 13:26:17 2022 +0700
+
+    adding first.txt
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~/git-basic/elwas (master)
+$ git init
+Initialized empty Git repository in C:/Users/TKJSQUAD/git-basic/elwas/.git/
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~/git-basic/elwas (master)
+$ echo halo perkenalkan aku halaman utama > README.md
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~/git-basic/elwas (master)
+$ git add .
+warning: in the working copy of 'README.md', LF will be replaced by CRLF the next time Git touches it
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~/git-basic/elwas (master)
+$ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   README.md
+
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~/git-basic/elwas (master)
+$ git commit  -m "first commit"
+[master (root-commit) 0ea8787] first commit
+ 1 file changed, 1 insertion(+)
+ create mode 100644 README.md
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~/git-basic/elwas (master)
+$ cat README.md
+halo perkenalkan aku halaman utama
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~/git-basic/elwas (master)
+$ cat README.md
+hello world
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~/git-basic/elwas (master)
+$ git checkout README.md
+Updated 1 path from the index
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~/git-basic/elwas (master)
+$ cat README.md
+halo perkenalkan aku halaman utama
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~/git-basic/elwas (master)
+$ git branch cv
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~/git-basic/elwas (master)
+$ git branch
+  cv
+* master
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~/git-basic/elwas (master)
+$ git checkout cv
+Switched to branch 'cv'
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~/git-basic/elwas (cv)
+$ git branch
+* cv
+  master
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~/git-basic/elwas (cv)
+$ touch cv.txt
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~/git-basic/elwas (cv)
+$ echo ini adalah file CV >cv.txt
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~/git-basic/elwas (cv)
+$ cat cv.txt
+ini adalah file CV
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~/git-basic/elwas (cv)
+$ git status
+On branch cv
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        cv.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~/git-basic/elwas (cv)
+$ git add
+Nothing specified, nothing added.
+hint: Maybe you wanted to say 'git add .'?
+hint: Turn this message off by running
+hint: "git config advice.addEmptyPathspec false"
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~/git-basic/elwas (cv)
+$ git add .
+warning: in the working copy of 'cv.txt', LF will be replaced by CRLF the next time Git touches it
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~/git-basic/elwas (cv)
+$ git commit -m "initial CV"
+[cv c3d698f] initial CV
+ 1 file changed, 1 insertion(+)
+ create mode 100644 cv.txt
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~/git-basic/elwas (cv)
+$ git add .
+warning: in the working copy of 'cv.txt', LF will be replaced by CRLF the next time Git touches it
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~/git-basic/elwas (cv)
+$ git commit -m "ELWAS GROUP"
+[cv 5532dc3] ELWAS GROUP
+ 1 file changed, 1 insertion(+)
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~/git-basic/elwas (cv)
+$ git add .
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~/git-basic/elwas (cv)
+$ git commit -m "RIDHO GROUP"
+On branch cv
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   cv.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~/git-basic/elwas (cv)
+$ git add .
+warning: in the working copy of 'cv.txt', LF will be replaced by CRLF the next time Git touches it
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~/git-basic/elwas (cv)
+$ git add .
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~/git-basic/elwas (cv)
+$ git status
+On branch cv
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   cv.txt
+
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~/git-basic/elwas (cv)
+$ git commit -m "SAEBANI"
+[cv e1c62e0] SAEBANI
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~/git-basic/elwas (cv)
+$ git add .
+warning: in the working copy of 'cv.txt', LF will be replaced by CRLF the next time Git touches it
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~/git-basic/elwas (cv)
+$ git status
+On branch cv
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   cv.txt
+
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~/git-basic/elwas (cv)
+$ git checkout master
+error: Your local changes to the following files would be overwritten by checkout:
+        cv.txt
+Please commit your changes or stash them before you switch branches.
+Aborting
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~/git-basic/elwas (cv)
+$ git checkout cv
+Already on 'cv'
+M       cv.txt
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~/git-basic/elwas (cv)
+$ git commit -m "SAEBANI"
+[cv 4101376] SAEBANI
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~/git-basic/elwas (cv)
+$ git checkout master
+Switched to branch 'master'
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~/git-basic/elwas (master)
+$ git branch
+  cv
+* master
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~/git-basic/elwas (master)
+$ git add .
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~/git-basic/elwas (master)
+$ git commit
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   README.md
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~/git-basic/elwas (master)
+$ git commit -m "update pertama pada branch master"
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   README.md
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~/git-basic/elwas (master)
+$ git add .
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~/git-basic/elwas (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   README.md
+
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~/git-basic/elwas (master)
+$ git merge cv
+Updating 0ea8787..4101376
+Fast-forward
+ cv.txt | 4 ++++
+ 1 file changed, 4 insertions(+)
+ create mode 100644 cv.txt
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~/git-basic/elwas (master)
+$ dir
+cv.txt  README.md
+
+TKJSQUAD@DESKTOP-JITE3PT MINGW64 ~/git-basic/elwas (master)
